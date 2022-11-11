@@ -6,19 +6,6 @@ Original file is located at
 
 # Data
 
-# connet kaggle
-!pip install kaggle
-!mkdir .kaggle
-
-import json
-token = {"username":"kemapow","key":"169f15df5f9fb93dfc175cf6433799c6"}
-with open('/content/.kaggle/kaggle.json', 'w') as file:
-    json.dump(token, file)
-
-!cp /content/.kaggle/kaggle.json ~/.kaggle/kaggle.json
-!chmod 600 ~/.kaggle/kaggle.json
-!kaggle config set -n path -v{/content}
-
 # load data
 !kaggle datasets download -d saimadhurivasam/human-activity-recognition-from-video -p /content/
 !unzip -d /content/ /content/*.zip
