@@ -1,7 +1,7 @@
-import cv2
-import numpy as np
 import os
 import sys
+import cv2
+import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 from warnings import warn
@@ -18,7 +18,7 @@ WARNING = "WARNING"
 FAIL = "FAIL"
 
 # resize the silhoette as 64 * 64
-T_H = 64 
+T_H = 64
 T_W = 64
 
 # def display_video(path):
@@ -194,7 +194,7 @@ def background_subtract(avi_name, sub_id, cond_id, pid):
 # main
 if __name__ == '__main__':
     pid = 0
-    os.chdir('./cv_project/')
+    os.chdir('./gait_recognition/')
 
     # Walk the input path
     id_list = os.listdir(INPUT_PATH)

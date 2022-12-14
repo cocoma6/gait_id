@@ -4,11 +4,12 @@ import os
 import sys
 from model.initialization import initialization
 
+# colab version config
 conf = {
-    "WORK_PATH": "C:/Users/piece/OneDrive/Documents/Python_scripts/cv_project/work", # working dir
+    "WORK_PATH": "/content/BFHI/gait_recognition/work", # working dir
     "CUDA_VISIBLE_DEVICES": "0,1,2,3",
     "data": {
-        'dataset_path': 'C:/Users/piece/OneDrive/Documents/Python_scripts/cv_project/data/pretreat', # data dir after pretreatment
+        'dataset_path': '/content/BFHI/gait_recognition/data/pretreat', # data dir after pretreatment
         'resolution': '64',
         'dataset': 'KTH', # the origin is 'CASIA-B'
         'pid_num': 20, # the number divide train and test
@@ -18,7 +19,7 @@ conf = {
         'hidden_dim': 256,
         'lr': 1e-4,
         'hard_or_full_trip': 'full',
-        'batch_size': (4,8), # batch size need to be smaller than pid num
+        'batch_size': (8,16), # batch size need to be smaller than pid num
         'restore_iter': 0,
         'total_iter': 500,
         'margin': 0.2,
