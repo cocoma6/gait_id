@@ -1,3 +1,4 @@
+import os
 from PIL import Image, ImageOps
 import numpy as np
 import matplotlib.pyplot as plt
@@ -13,12 +14,14 @@ def display_loss(iter, hard, full, loss_num, dist):
     # plt.title("per-frame residual") 
     plt.plot(iter, hard)
     plt.plot(iter, full) 
-    # plt.savefig("residual plot.png")
     
     plt.subplot(1,2,2)
     plt.xlabel("iteration index") 
     plt.ylabel("feature mean dist")
     # plt.title("per-frame mean distances") 
-    plt.plot(iter, dist) 
-    # plt.savefig("mean distances plot.png")
+    plt.plot(iter, dist)
+    
+    dataset = 'KTH'
+    img_name = '{}_{}_{}.jpg'.format(dataset, iter[-1], 'loss')
+    plt.savefig(img_name)
     plt.show()
