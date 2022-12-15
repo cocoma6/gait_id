@@ -7,18 +7,18 @@ import random
 import cv2
 
 def display_loss(iter, hard, full, loss_num, dist):
-    fig = plt.figure(figsize=(14,6))
+    fig = plt.figure(figsize=(15,5))
 
     plt.subplot(1,2,1)
-    plt.xlabel("iteration index")
-    plt.ylabel("loss metric mean")
+    plt.xlabel("iteration index", fontsize=20)
+    plt.ylabel("loss metric mean", fontsize=20)
     plt.plot(iter, hard)
     plt.plot(iter, full)
     plt.legend(labels=['hard loss','full loss'], loc=1); # upper right corner
     
     plt.subplot(1,2,2)
-    plt.xlabel("iteration index")
-    plt.ylabel("feature mean distance")
+    plt.xlabel("iteration index", fontsize=20)
+    plt.ylabel("feature mean distance", fontsize=20)
     plt.plot(iter, dist)
     
     dataset = 'KTH'
