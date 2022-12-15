@@ -14,7 +14,7 @@ def display_loss(iter, hard, full, loss_num, dist):
     plt.ylabel("loss metric mean", fontsize=20)
     plt.plot(iter, hard)
     plt.plot(iter, full)
-    plt.legend(labels=['hard loss','full loss'], loc=1); # upper right corner
+    plt.legend(labels=['hard loss','full loss'], loc=1) # upper right corner
     
     plt.subplot(1,2,2)
     plt.xlabel("iteration index", fontsize=20)

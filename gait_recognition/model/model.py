@@ -11,6 +11,8 @@ import torch.nn as nn
 import torch.autograd as autograd
 import torch.optim as optim
 import torch.utils.data as tordata
+from sklearn.manifold import TSNE
+import matplotlib.pyplot as plt
 
 from .network import TripletLoss, SetNet
 from .utils import TripletSampler
@@ -214,14 +216,17 @@ class Model:
                 self.dist_list = []
 
             # # Visualization using t-SNE
-            # if self.restore_iter % 500 == 0:
-            #     pca = TSNE(2)
-            #     pca_feature = pca.fit_transform(feature.view(feature.size(0), -1).data.cpu().numpy())
-            #     for i in range(self.P):
-            #         plt.scatter(pca_feature[self.M * i:self.M * (i + 1), 0],
-            #                     pca_feature[self.M * i:self.M * (i + 1), 1], label=label[self.M * i])
-            
-            #     plt.show()
+            if self.restore_iter % 1000 == 0:
+                pca = TSNE(2)
+                pca_feature = pca.fit_transform(feature.view(feature.size(0), -1).data.cpu().numpy())
+                for i in range(self.P):
+                    plt.scatter(pca_feature[self.M * i:self.M * (i + 1), 0],
+                                pca_feature[self.M * i:self.M * (i + 1), 1], label=label[self.M * i])
+                
+                img_name = '{}_{}.jpg'.format(self.restore_iter, 'feature')
+                plt.legend()
+                plt.savefig(img_name)
+                plt.show()
 
             if self.restore_iter == self.total_iter:
                 break
